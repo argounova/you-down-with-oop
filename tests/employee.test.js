@@ -51,6 +51,6 @@ test('Can get id via getEmail()', () => {
     // expect and toBe 
 });
 
-test('getRole() should return \'Employee\''. () => {
+test('getRole() should return \'Employee\'', () => {
 
 });
