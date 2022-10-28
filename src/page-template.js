@@ -1,4 +1,3 @@
-const generateManager = require('lib/manager.js');
 // const generateTeam = team => {
 
 // create the manager html
