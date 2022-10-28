@@ -1,13 +1,15 @@
-const Manager = require('./lib/Manager');
-const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern');
 const questions = require('inquirer');
 const path = require('path');
 const fs = require('fs');
 const render = require('./src/page-template.js');
-const { create } = require('domain');
-const DIST_DIR = path.resolve(__dirname, 'dist');
-const distPath = path.join(DIST_DIR, 'team.html');
+
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
+// const { create } = require('domain');
+// const DIST_DIR = path.resolve(__dirname, 'dist');
+// const distPath = path.join(DIST_DIR, 'team.html');
 
 const teamMembersArr = [];
 
@@ -37,8 +39,9 @@ function createManager() {
     ])
     .then((response) => {
       const infoMgr = Array(response.nameMgr, response.idMgr, response.emailMgr, response.officeNumMgr);
+      console.log(infoMgr);
       teamMembersArr.push(infoMgr);
-      return createTeam();
+      return addEmployee();
     });
 }
 
@@ -64,7 +67,7 @@ function createEngineer() {
     .then((response) => {
       const infoEng = Array(response.nameEng, response.idEng, response.emailEng);
       teamMembersArr.push(infoEng);
-      return createTeam();
+      return addEmployee();
     });
 }
 
@@ -90,11 +93,11 @@ function createIntern() {
     .then((response) => {
       const infoInt = Array(response.nameInt, response.idInt, response.emailInt);
       teamMembersArr.push(infoInt);
-      return createTeam();
+      return addEmployee();
     });
 }
 
-function createTeam() {
+function addEmployee() {
   questions
     .prompt([
       {
@@ -114,10 +117,15 @@ function createTeam() {
             createIntern();
             break;
           case 'My Team Is Complete':
-            return;
+            createTeam(teamMembersArr);
+            break;
         }
       }
     });    
+}
+
+function createTeam(teamMembersArr) {
+
 }
 
 createManager();
