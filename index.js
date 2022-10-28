@@ -114,8 +114,6 @@ function createTeam() {
             createIntern();
             break;
           case 'My Team Is Complete':
-            console.log(teamMembersArr);
-            console.log('Thanks for your input!');
             return;
         }
       }
