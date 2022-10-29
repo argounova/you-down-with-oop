@@ -1,5 +1,3 @@
-
-
 const generateManager = infoMgr => {
     return `
     <div id="manager" class="row container border border-dark rounded">

@@ -38,8 +38,7 @@ function createManager() {
       },
     ])
     .then((response) => {
-      const infoMgr = Array(response.nameMgr, response.idMgr, response.emailMgr, response.officeNumMgr);
-      console.log(infoMgr);
+      const infoMgr = response;
       teamMembersArr.push(infoMgr);
       return addEmployee();
     });
@@ -65,7 +64,7 @@ function createEngineer() {
       },
     ])
     .then((response) => {
-      const infoEng = Array(response.nameEng, response.idEng, response.emailEng);
+      const infoEng = response;
       teamMembersArr.push(infoEng);
       return addEmployee();
     });
@@ -91,7 +90,7 @@ function createIntern() {
       },
     ])
     .then((response) => {
-      const infoInt = Array(response.nameInt, response.idInt, response.emailInt);
+      const infoInt = response;
       teamMembersArr.push(infoInt);
       return addEmployee();
     });
